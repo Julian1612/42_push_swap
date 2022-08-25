@@ -6,14 +6,14 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/08/24 16:12:52 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/08/25 17:34:05 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	printf("Hello World\n");
+	parser(argc, argv);
 	return (0);
 }
