@@ -6,36 +6,33 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/08/25 17:34:00 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/08/29 17:24:42 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parser(int argc, char **argv)
+struct s_node	*parser(int argc, char **argv, t_node *head)
 {
 	int		index;
-	t_node	*head;
 	t_node	*tmp;
 
-	(void) argc;
-	head = NULL;
-	index = 1;
-	while (index < argc)
+	index = argc - 1;
+	while (index > 0)
 	{
 		tmp = new_node(ft_atoi(argv[index]));
 		tmp->next = head;
 		head = tmp;
-		index++;
+		index--;
 	}
-	printlist(head);
+	return (head);
 }
 
 struct s_node	*new_node(int value)
 {
 	struct s_node	*stack;
 
-	(void) value;
+	stack = NULL;
 	stack = malloc(sizeof(stack));
 	stack->value = value;
 	stack->next = NULL;

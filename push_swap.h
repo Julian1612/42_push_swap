@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/08/25 17:34:48 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/08/29 18:29:08 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-int				main(int argc, char **argv);
-struct s_node	*new_node(int value);
+struct s_node	*parser(int argc, char **argv, t_node *head);
 void			printlist(t_node *head);
-void	parser(int argc, char **argv);
+struct s_node	*new_node(int value);
+void			sawp_stack_a(t_node *head);
+t_node			*get_node_2(t_node *head);
 
 #endif
