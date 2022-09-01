@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/01 11:22:05 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/01 11:43:26 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ int	main(int argc, char *argv[])
 
 	head = NULL;
 	head = parser(argc, argv, head);
+	printf("List at beginning\n");
 	printlist(head);
-	sawp_stack_a(&head);
-	printlist(head);
-	sawp_stack_a(&head);
+	swap_stack_a(&head);
+	printf("Swaped the first two elemnts of stack A\n");
 	printlist(head);
 	rotate_stack_a(&head);
+	printf("Swaped the first elemt to the end of stack A\n");
 	printlist(head);
 	return (0);
 }
