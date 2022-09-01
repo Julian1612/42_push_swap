@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 11:22:21 by jschneid          #+#    #+#              #
-#    Updated: 2022/08/17 15:24:36 by jschneid         ###   ########.fr        #
+#    Updated: 2022/08/31 15:41:27 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,25 +34,20 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar r $(NAME) $(OBJ)
-	@echo "make done"
 
 $(OBJ): $(MANDATORY)
 	@cc $(FLASG) -c $(MANDATORY)
 
 clean:
 	@/bin/rm -f $(OBJ) $(OBJB)
-	@echo "make clean done"
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "make fclean done"
 
 re: fclean all
-	@echo "make re done"
 
 bonus: $(OBJ) $(OBJB)
 	@ar r $(NAME) $(OBJ) $(OBJB)
-	@echo "make bonus done"
 
 $(OBJB): $(BONUS)
 	@cc $(FLASG) -c $(BONUS)

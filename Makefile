@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 10:32:35 by jschneid          #+#    #+#              #
-#    Updated: 2022/08/29 17:50:22 by jschneid         ###   ########.fr        #
+#    Updated: 2022/08/31 15:40:41 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all: $(NAME)
 	@$(CC) $(FLAGS)
 
 $(NAME): $(OBJ)
-	@make -C libft/
+	@make bonus -C libft/
 	@mv ./libft/libft.a ./
 	@$(CC) $(OBJ) -L. -lft -o $(NAME)
 	@echo "make done"

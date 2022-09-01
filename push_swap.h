@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/08/29 18:29:08 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/01 09:49:52 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ typedef struct s_node
 struct s_node	*parser(int argc, char **argv, t_node *head);
 void			printlist(t_node *head);
 struct s_node	*new_node(int value);
-void			sawp_stack_a(t_node *head);
-t_node			*get_node_2(t_node *head);
+void			sawp_stack_a(t_node **head);
+t_node			*get_second_node(t_node *head);
+void			rotate_stack_a(t_node **head);
+int				size_stack(t_node *stack);
+t_node			*get_last_node(t_node *head);
+int				get_list_size(t_node *head);
 
 #endif
