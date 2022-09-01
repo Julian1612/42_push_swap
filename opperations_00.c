@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 17:32:57 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/01 11:48:38 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:41:49 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,18 @@ void	rotate_stack_a(t_node **head)
 	(*head) = node_2;
 	last_node->next = temporary;
 	temporary->next = NULL;
+}
+
+void	reverse_rotate_stack_a(t_node **head)
+{
+	t_node	*last_node;
+	t_node	*penultimate_node;
+	t_node	*temporary;
+
+	last_node = get_last_node(*head);
+	penultimate_node = get_penultimte_node(*head);
+	temporary = (*head);
+	(*head) = last_node;
+	last_node->next = temporary;
+	penultimate_node->next = NULL;
 }

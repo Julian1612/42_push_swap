@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 11:47:43 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/01 11:49:11 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:42:04 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,21 @@ t_node	*get_second_node(t_node *head)
 	stack_a = head;
 	index = 0;
 	while (stack_a != NULL && index < 1)
+	{
+		stack_a = stack_a->next;
+		index++;
+	}
+	return (stack_a);
+}
+
+t_node	*get_penultimte_node(t_node *head)
+{
+	int		index;
+	t_node	*stack_a;
+
+	stack_a = head;
+	index = 1;
+	while (stack_a != NULL && index < (get_list_size(head) - 1))
 	{
 		stack_a = stack_a->next;
 		index++;

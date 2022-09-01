@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/08/29 17:24:42 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:39:20 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ struct s_node	*new_node(int value)
 
 	stack = NULL;
 	stack = malloc(sizeof(stack));
-	stack->value = value;
+	stack->data = value;
 	stack->next = NULL;
 	return (stack);
 }
@@ -46,7 +46,7 @@ void	printlist(t_node *head)
 	temporary = head;
 	while (temporary != NULL)
 	{
-		printf("%d - ", temporary->value);
+		printf("%d - ", temporary->data);
 		temporary = temporary->next;
 	}
 	printf("\n");
