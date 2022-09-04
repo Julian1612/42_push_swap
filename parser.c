@@ -6,13 +6,13 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/01 12:39:20 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:39:27 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-struct s_node	*parser(int argc, char **argv, t_node *head)
+t_node	*parser(int argc, char **argv, t_node *head)
 {
 	int		index;
 	t_node	*tmp;
@@ -28,9 +28,9 @@ struct s_node	*parser(int argc, char **argv, t_node *head)
 	return (head);
 }
 
-struct s_node	*new_node(int value)
+t_node	*new_node(int value)
 {
-	struct s_node	*stack;
+	t_node	*stack;
 
 	stack = NULL;
 	stack = malloc(sizeof(stack));
