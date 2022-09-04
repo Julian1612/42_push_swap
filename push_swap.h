@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/04 18:06:51 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/04 18:09:14 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void			printlist(t_node *head);
 t_node			*new_node(int value);
 void			swap_stack(t_node **head);
 void			rotate_stack(t_node **head);
-void			push_to_stack_b(t_node **stack_a, t_node **stack_b);
+void			push_to_stack(t_node **stack_a, t_node **stack_b);
 void			reverse_rotate_stack(t_node **head);
 t_node			*get_second_node(t_node *head);
 int				size_stack(t_node *stack);
