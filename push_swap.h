@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/04 18:09:14 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/05 21:58:55 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <limits.h>
 # include "./libft/libft.h"
 ////////////////////
 # include <stdio.h>
@@ -38,5 +39,9 @@ int				size_stack(t_node *stack);
 t_node			*get_last_node(t_node *head);
 int				get_list_size(t_node *head);
 t_node			*get_penultimte_node(t_node *head);
+void			reverse_rotate_both_stacks(t_node **stack_a, t_node **stack_b);
+void			rotate_both_stacks(t_node **stack_a, t_node **stack_b);
+void			swap_both_stacks(t_node **stack_a, t_node **stack_b);
+int				input_check(int index, char **argv);
 
 #endif

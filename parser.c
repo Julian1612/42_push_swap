@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/01 13:39:27 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/05 22:23:09 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	index = argc - 1;
 	while (index > 0)
 	{
-		tmp = new_node(ft_atoi(argv[index]));
+		tmp = new_node(input_check(index, argv));
 		tmp->next = head;
 		head = tmp;
 		index--;
@@ -37,6 +37,32 @@ t_node	*new_node(int value)
 	stack->data = value;
 	stack->next = NULL;
 	return (stack);
+}
+
+int	input_check(int index_1, char **argv)
+{
+	size_t		index_2;
+	long		current_number;
+
+	current_number = ft_atoi(argv[index_1]);
+	if (ft_atoi(argv[index_1]) > INT_MAX || ft_atoi(argv[index_1]) < INT_MIN)
+	{
+		write(1, "Error\n", 6);
+		exit(0);
+	}
+	index_2 = 0;
+	while (index_2 < ft_strlen(argv[index_1]))
+	{
+		if (argv[index_1][index_2] == '-' || argv[index_1][index_2] == '+')
+			index_2++;
+		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
+		{
+			write(1, "Error\n", 6);
+			exit(0);
+		}
+		index_2++;
+	}
+	return (current_number);
 }
 
 void	printlist(t_node *head)

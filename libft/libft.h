@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 16:07:05 by jschneid          #+#    #+#             */
-/*   Updated: 2022/08/31 15:56:20 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/05 22:16:10 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int				ft_atoi(const char *nptr);
+long			ft_atoi(const char *nptr);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
 int				ft_isalnum(int i);

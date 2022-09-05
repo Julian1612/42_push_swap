@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/04 18:11:51 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/05 17:27:09 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,12 @@ int	main(int argc, char *argv[])
 	printlist(stack_a);
 	printf("B: ");
 	printlist(stack_b);
-	rotate_stack(&stack_a);
-	rotate_stack(&stack_b);
+	rotate_both_stacks(&stack_a, &stack_b);
 	printf("A: ");
 	printlist(stack_a);
 	printf("B: ");
 	printlist(stack_b);
-	reverse_rotate_stack(&stack_a);
-	reverse_rotate_stack(&stack_b);
+	reverse_rotate_both_stacks(&stack_a, &stack_b);
 	printf("A: ");
 	printlist(stack_a);
 	printf("B: ");
