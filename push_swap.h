@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/05 21:58:55 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/06 10:20:50 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_node			*get_penultimte_node(t_node *head);
 void			reverse_rotate_both_stacks(t_node **stack_a, t_node **stack_b);
 void			rotate_both_stacks(t_node **stack_a, t_node **stack_b);
 void			swap_both_stacks(t_node **stack_a, t_node **stack_b);
-int				input_check(int index, char **argv);
+long			ft_atoi(const char *nptr);//anderen namen
+int				input_check(int index_1, int argc, char **argv);
+void			duplicate_checker(int index_1, int argc, char **argv);
 
 #endif
