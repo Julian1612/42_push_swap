@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 11:47:43 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/01 12:42:04 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/07 17:27:23 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 t_node	*get_last_node(t_node *head)
 {
 	int		index;
-	int		list_size;
+	int		size_list;
 	t_node	*last_node;
 	t_node	*stack_a;
 
+	if (head == NULL)
+		return (NULL);
 	stack_a = head;
-	list_size = get_list_size(head);
+	size_list = list_size(head);
 	index = 1;
 	while (stack_a != NULL)
 	{
-		if (index == list_size)
+		if (index == size_list)
 			last_node = stack_a;
 		stack_a = stack_a->next;
 		index++;
@@ -32,10 +34,12 @@ t_node	*get_last_node(t_node *head)
 	return (last_node);
 }
 
-int	get_list_size(t_node *head)
+int	list_size(t_node *head)
 {
 	int	index;
 
+	if (head == 0)
+		return (0);
 	index = 0;
 	while (head != NULL)
 	{
@@ -50,6 +54,8 @@ t_node	*get_second_node(t_node *head)
 	int		index;
 	t_node	*stack_a;
 
+	if (head == NULL)
+		return (NULL);
 	stack_a = head;
 	index = 0;
 	while (stack_a != NULL && index < 1)
@@ -65,9 +71,11 @@ t_node	*get_penultimte_node(t_node *head)
 	int		index;
 	t_node	*stack_a;
 
+	if (head == NULL)
+		return (NULL);
 	stack_a = head;
 	index = 1;
-	while (stack_a != NULL && index < (get_list_size(head) - 1))
+	while (stack_a != NULL && index < (list_size(head) - 1))
 	{
 		stack_a = stack_a->next;
 		index++;
