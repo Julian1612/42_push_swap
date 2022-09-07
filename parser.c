@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/06 11:32:59 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/06 20:34:46 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	int		index;
 	t_node	*tmp;
 
+	if (argc == 1)
+	{
+		write(2, "Error\n", 6);
+		exit(0);
+	}
 	index = argc - 1;
 	while (index > 0)
 	{
@@ -48,7 +53,7 @@ int	input_check(int index_1, int argc, char **argv)
 	current_number = ft_atoi(argv[index_1]);
 	if (current_number > INT_MAX || current_number < INT_MIN)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(0);
 	}
 	index_2 = 0;
@@ -58,12 +63,11 @@ int	input_check(int index_1, int argc, char **argv)
 			index_2++;
 		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		index_2++;
 	}
-	printf("---------------------");
 	return (current_number);
 }
 
@@ -78,7 +82,7 @@ void	duplicate_checker(int index_1, int argc, char **argv)
 			index_2--;
 		if (ft_atoi(argv[index_1]) == ft_atoi(argv[index_2]))
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		index_2--;

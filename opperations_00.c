@@ -6,13 +6,13 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 17:32:57 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/05 17:30:32 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/07 15:50:51 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_stack(t_node **head)
+void	swap(t_node **head)
 {
 	t_node	*node_2;
 	t_node	*temporary;
@@ -24,13 +24,7 @@ void	swap_stack(t_node **head)
 	*head = node_2;
 }
 
-void	swap_both_stacks(t_node **stack_a, t_node **stack_b)
-{
-	swap_stack(stack_a);
-	swap_stack(stack_b);
-}
-
-void	rotate_stack(t_node **head)
+void	rotate(t_node **head)
 {
 	t_node	*last_node;
 	t_node	*node_2;
@@ -44,13 +38,7 @@ void	rotate_stack(t_node **head)
 	temporary->next = NULL;
 }
 
-void	rotate_both_stacks(t_node **stack_a, t_node **stack_b)
-{
-	rotate_stack(stack_a);
-	rotate_stack(stack_b);
-}
-
-void	reverse_rotate_stack(t_node **head)
+void	reverse_rotate(t_node **head)
 {
 	t_node	*last_node;
 	t_node	*penultimate_node;

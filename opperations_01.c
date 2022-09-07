@@ -6,19 +6,13 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:22:27 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/05 17:30:10 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/07 15:54:50 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate_both_stacks(t_node **stack_a, t_node **stack_b)
-{
-	reverse_rotate_stack(stack_a);
-	reverse_rotate_stack(stack_b);
-}
-
-void	push_to_stack(t_node **stack_a, t_node **stack_b)
+void	push(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*temp;
 
@@ -28,4 +22,29 @@ void	push_to_stack(t_node **stack_a, t_node **stack_b)
 	(*stack_b) = (*stack_a);
 	(*stack_a) = (*stack_a)->next;
 	(*stack_b)->next = temp;
+}
+
+void	swap_a(t_node **head)
+{
+	swap(head);
+	ft_printf("sa\n");
+}
+
+void	swap_b(t_node **head)
+{
+	swap(head);
+	ft_printf("sb\n");
+}
+
+void	swap_stacks(t_node **stack_a, t_node **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+	ft_printf("ss\n");
+}
+
+void	push_a(t_node **stack_a, t_node **stack_b)
+{
+	push(stack_b, stack_a);
+	ft_printf("pa\n");
 }
