@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/08 12:28:25 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/10 17:36:36 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_a = parser(argc, argv, stack_a);
-	printlist(stack_a);
-	sort_for_index(&stack_a);
-	printlist(stack_a);
+	pre_sort_stack(&stack_a, &stack_b);
+	sort_stack(&stack_a, &stack_b);
 	return (0);
 }
