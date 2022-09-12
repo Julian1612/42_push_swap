@@ -1,0 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_01.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/12 15:27:38 by jschneid          #+#    #+#             */
+/*   Updated: 2022/09/12 15:31:14 by jschneid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	compare_moves_to_a(t_node **stack_a, t_node **stack_b,
+	t_node **smallest_list)
+{
+	if (moves_top((*stack_b), (*smallest_list))
+		< moves_buttom((*smallest_list)))
+	{
+		while ((*stack_b)->data != (*smallest_list)->data)
+		{
+			rotate_b(stack_b);
+		}
+		push_a(stack_a, stack_b);
+	}
+	else
+	{
+		while ((*stack_b)->data != (*smallest_list)->data)
+		{
+			reverse_rotate_b(stack_b);
+		}
+		push_a(stack_a, stack_b);
+	}
+}
+
+void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
+	t_node **top, t_node **buttom)
+{
+	if (moves_top((*stack_a), (*top)) < moves_buttom((*buttom)))
+	{
+		while ((*stack_a)->data != (*top)->data)
+		{
+			rotate_a(stack_a);
+		}
+		push_b(stack_a, stack_b);
+	}
+	else
+	{
+		while ((*stack_a)->data != (*buttom)->data)
+		{
+			reverse_rotate_a(stack_a);
+		}
+		push_b(stack_a, stack_b);
+	}
+}
+
+int	moves_top(t_node *head, t_node *top)
+{
+	int	counter;
+
+	counter = 0;
+	while (head != top)
+	{
+		counter++;
+		head = head->next;
+	}
+	return (counter);
+}
+
+int	moves_buttom(t_node *buttom)
+{
+	int	counter;
+
+	counter = 0;
+	while (buttom != NULL)
+	{
+		counter++;
+		buttom = buttom->next;
+	}
+	return (counter);
+}

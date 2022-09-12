@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 10:32:35 by jschneid          #+#    #+#              #
-#    Updated: 2022/09/08 11:34:34 by jschneid         ###   ########.fr        #
+#    Updated: 2022/09/12 15:29:35 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = push_swap
 FLAGS = -Wall -Werror -Wextra -Imlx -c $< -o $@
 
 MANDATORY = main.c parser.c opperations_00.c opperations_01.c \
-opperations_02.c opperations_03.c sorting_00.c utils_00.c
+opperations_02.c opperations_03.c sorting_00.c sorting_01.c utils_00.c
 
 CC = gcc
 
