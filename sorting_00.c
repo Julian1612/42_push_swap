@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/12 15:28:58 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:53:48 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,17 @@
 
 void	pre_sort_stack(t_node **stack_a, t_node **stack_b)
 {
-	t_node	*smallest_top;
-	t_node	*smallest_bottom;
-
 	while (list_size((*stack_a)) > 0)
 	{
-		smallest_top = smallest_element_top((*stack_a));
-		smallest_bottom = smallest_element_bottom((*stack_a));
-		compare_moves_to_b(stack_a, stack_b, &smallest_top, &smallest_bottom);
+		compare_moves_to_b(stack_a, stack_b);
 	}
 }
 
 void	sort_stack(t_node **stack_a, t_node **stack_b)
 {
-	t_node	*smallest_list;
-
 	while (list_size((*stack_b)) > 0)
 	{
-		smallest_list = smallest_element_list((*stack_b));
-		compare_moves_to_a(stack_a, stack_b, &smallest_list);
+		compare_moves_to_a(stack_a, stack_b);
 	}
 }
 

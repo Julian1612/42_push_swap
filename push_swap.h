@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/12 15:30:40 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:54:07 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,8 @@ void			push_largest_element(t_node **head);
 t_node			*smallest_element_top(t_node *head);
 t_node			*smallest_element_bottom(t_node *head);
 void			compare_moves_to_a(t_node **stack_a,
-					t_node **stack_b, t_node **smallest_list);
-void			compare_moves_to_b(t_node **stack_a, t_node **stack_b,
-					t_node **top, t_node **buttom);
+					t_node **stack_b);
+void			compare_moves_to_b(t_node **stack_a, t_node **stack_b);
 int				moves_top(t_node *head, t_node *top);
 int				moves_buttom(t_node *buttom);
 void			pre_sort_stack(t_node **stack_a, t_node **stack_b);
