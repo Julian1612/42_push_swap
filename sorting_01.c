@@ -6,59 +6,53 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:27:38 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/12 16:56:25 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/13 10:30:15 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	compare_moves_to_a(t_node **stack_a, t_node **stack_b)
+t_node	*smallest_element_top(t_node *head)
 {
-	t_node	*smallest_list;
+	int		index;
+	int		size_list;
+	t_node	*smallest_element;
 
-	smallest_list = smallest_element_list((*stack_b));
-	if (moves_top((*stack_b), smallest_list)
-		< moves_buttom(smallest_list))
+	size_list = list_size(head);
+	smallest_element = head;
+	index = 0;
+	while (index < (size_list / 2))
 	{
-		while ((*stack_b)->data != smallest_list->data)
-		{
-			rotate_b(stack_b);
-		}
-		push_a(stack_a, stack_b);
+		if (smallest_element->data > head->data)
+			smallest_element = head;
+		head = head->next;
+		index++;
 	}
-	else
-	{
-		while ((*stack_b)->data != smallest_list->data)
-		{
-			reverse_rotate_b(stack_b);
-		}
-		push_a(stack_a, stack_b);
-	}
+	return (smallest_element);
 }
 
-void	compare_moves_to_b(t_node **stack_a, t_node **stack_b)
+t_node	*smallest_element_bottom(t_node *head)
 {
-	t_node	*smallest_top;
-	t_node	*smallest_bottom;
+	int		index;
+	int		size_list;
+	t_node	*smallest_element;
 
-	smallest_top = smallest_element_top((*stack_a));
-	smallest_bottom = smallest_element_bottom((*stack_a));
-	if (moves_top((*stack_a), smallest_top) < moves_buttom(smallest_bottom))
+	size_list = list_size(head);
+	index = 0;
+	while (index < (size_list / 2))
 	{
-		while ((*stack_a)->data != smallest_top->data)
-		{
-			rotate_a(stack_a);
-		}
-		push_b(stack_a, stack_b);
+		head = head->next;
+		index++;
 	}
-	else
+	smallest_element = head;
+	while (index < size_list)
 	{
-		while ((*stack_a)->data != smallest_bottom->data)
-		{
-			reverse_rotate_a(stack_a);
-		}
-		push_b(stack_a, stack_b);
+		if (smallest_element->data > head->data)
+			smallest_element = head;
+		head = head->next;
+		index++;
 	}
+	return (smallest_element);
 }
 
 int	moves_top(t_node *head, t_node *top)
