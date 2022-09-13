@@ -6,13 +6,13 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:27:38 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/13 10:30:15 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/13 14:18:50 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*smallest_element_top(t_node *head)
+t_node	*smallest_element_top(t_node *head, int chunk_size)
 {
 	int		index;
 	int		size_list;
@@ -21,6 +21,7 @@ t_node	*smallest_element_top(t_node *head)
 	size_list = list_size(head);
 	smallest_element = head;
 	index = 0;
+	(void) chunk_size;
 	while (index < (size_list / 2))
 	{
 		if (smallest_element->data > head->data)
@@ -31,7 +32,7 @@ t_node	*smallest_element_top(t_node *head)
 	return (smallest_element);
 }
 
-t_node	*smallest_element_bottom(t_node *head)
+t_node	*smallest_element_bottom(t_node *head, int chunk_size)
 {
 	int		index;
 	int		size_list;
@@ -39,6 +40,7 @@ t_node	*smallest_element_bottom(t_node *head)
 
 	size_list = list_size(head);
 	index = 0;
+	(void) chunk_size;
 	while (index < (size_list / 2))
 	{
 		head = head->next;

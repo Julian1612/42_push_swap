@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/08 12:25:18 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:34:27 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,45 @@ void	duplicate_check(int index_1, int argc, char **argv)
 		}
 		index_2--;
 	}
+}
+
+void	index_list(t_node *stack_a)
+{
+	int		index;
+	t_node	*smallest_element;
+	t_node	*head;
+
+	smallest_element = smallest_element_list(stack_a);
+	head = stack_a;
+	index = 0;
+	while (stack_a != NULL)
+	{
+		if (stack_a->data < smallest_element->data)
+		{
+			stack_a->data = index;
+		}
+		index++;
+		stack_a = stack_a->next;
+	}
+}
+
+t_node	*smallest_element_list(t_node *head)
+{
+	int		index;
+	int		size_list;
+	t_node	*smallest_element;
+
+	size_list = list_size(head);
+	smallest_element = head;
+	index = 0;
+	while (index < size_list)
+	{
+		if (smallest_element->data < head->data)
+			smallest_element = head;
+		head = head->next;
+		index++;
+	}
+	return (smallest_element);
 }
 
 void	printlist(t_node *head)

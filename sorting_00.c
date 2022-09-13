@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/13 11:17:54 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:34:40 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@ void	pre_sort_stack(t_node **stack_a, t_node **stack_b)
 
 	chunk_size = get_chunk_size(stack_a);
 	while (list_size((*stack_a)) > 0)
+	{
 		compare_moves_to_b(stack_a, stack_b, chunk_size);
+	}
 }
 
 int	get_chunk_size(t_node **stack_a)
 {
-	if (list_size((*stack_a)) <= 5)
+	if (list_size((*stack_a)) < 4)
 		return (5);
-	else if (list_size((*stack_a)) >= 100)
+	else if (list_size((*stack_a)) >= 5)
 		return (20);
 	else if (list_size((*stack_a)) >= 500)
 		return (45);
@@ -43,7 +45,7 @@ void	compare_moves_to_a(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*smallest_list;
 
-	smallest_list = smallest_element_list((*stack_b));
+	smallest_list = largest_element_list((*stack_b));
 	if (moves_top((*stack_b), smallest_list)
 		< moves_buttom(smallest_list))
 	{
@@ -64,9 +66,9 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b, int chunk_size)
 	t_node	*smallest_top;
 	t_node	*smallest_bottom;
 
-	printf("%d", chunk_size);
-	smallest_top = smallest_element_top((*stack_a));
-	smallest_bottom = smallest_element_bottom((*stack_a));
+	// printf("%d", chunk_size);
+	smallest_top = smallest_element_top((*stack_a), chunk_size);
+	smallest_bottom = smallest_element_bottom((*stack_a), chunk_size);
 	if (moves_top((*stack_a), smallest_top) < moves_buttom(smallest_bottom))
 	{
 		while ((*stack_a)->data != smallest_top->data)
@@ -81,18 +83,18 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b, int chunk_size)
 	}
 }
 
-t_node	*smallest_element_list(t_node *head)
+t_node	*largest_element_list(t_node *head) //namen der variablen in der function anpassen !!!!!!!!!!
 {
 	int		index;
 	int		size_list;
-	t_node	*smallest_element;
+	t_node	*smallest_element;//namen anpassen
 
 	size_list = list_size(head);
 	smallest_element = head;
 	index = 0;
 	while (index < size_list)
 	{
-		if (smallest_element->data > head->data)
+		if (smallest_element->data < head->data)
 			smallest_element = head;
 		head = head->next;
 		index++;
