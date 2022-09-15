@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:27:38 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/13 14:18:50 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:21:02 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,23 @@ int	moves_buttom(t_node *buttom)
 		buttom = buttom->next;
 	}
 	return (counter);
+}
+
+t_node	*largest_element_list(t_node *head)
+{
+	int		index;
+	int		size_list;
+	t_node	*largest_element;
+
+	size_list = list_size(head);
+	largest_element = head;
+	index = 0;
+	while (index < size_list)
+	{
+		if (largest_element->data < head->data)
+			largest_element = head;
+		head = head->next;
+		index++;
+	}
+	return (largest_element);
 }

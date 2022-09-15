@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/13 17:34:27 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:11:42 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_node	*parser(int argc, char **argv, t_node *head)
 
 	if (argc == 2)
 	{
-		write(2, "Error\n", 6);
+		write(2, "aError\n", 7);
 		exit(0);
 	}
 	index = argc - 1;
@@ -37,8 +37,7 @@ t_node	*new_node(int value)
 {
 	t_node	*stack;
 
-	stack = NULL;
-	stack = malloc(sizeof(stack));
+	stack = (t_node *) malloc(sizeof(t_node));
 	stack->data = value;
 	stack->next = NULL;
 	return (stack);
@@ -53,7 +52,7 @@ int	input_check(int index_1, int argc, char **argv)
 	current_number = ft_atoi(argv[index_1]);
 	if (current_number > INT_MAX || current_number < INT_MIN)
 	{
-		write(2, "Error\n", 6);
+		write(2, "bError\n", 7);
 		exit(0);
 	}
 	index_2 = 0;
@@ -63,7 +62,7 @@ int	input_check(int index_1, int argc, char **argv)
 			index_2++;
 		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
 		{
-			write(2, "Error\n", 6);
+			write(2, "cError\n", 7);
 			exit(0);
 		}
 		index_2++;
@@ -71,7 +70,7 @@ int	input_check(int index_1, int argc, char **argv)
 	return (current_number);
 }
 
-void	duplicate_check(int index_1, int argc, char **argv)
+void	duplicate_check(int index_1, int argc, char **argv) /// nochmal checken ob wirklich funktioniert
 {
 	int	index_2;
 
@@ -80,52 +79,54 @@ void	duplicate_check(int index_1, int argc, char **argv)
 	{
 		if (index_2 == index_1)
 			index_2--;
+		if (index_2 == 0)
+			return ;
 		if (ft_atoi(argv[index_1]) == ft_atoi(argv[index_2]))
 		{
-			write(2, "Error\n", 6);
+			write(2, "dError\n", 7);
 			exit(0);
 		}
 		index_2--;
 	}
 }
 
-void	index_list(t_node *stack_a)
+t_node	*index_list(t_node *stack_a)
 {
 	int		index;
-	t_node	*smallest_element;
+	t_node	*indexed_list;
+	t_node	*tmp;
 	t_node	*head;
+	t_node	*head_indexed;
 
-	smallest_element = smallest_element_list(stack_a);
 	head = stack_a;
+	indexed_list = new_node(get_nbr_index(stack_a, head));
+	head_indexed = indexed_list;
+	head = head->next;
+	index = (list_size(stack_a) - 1);
+	while (index > 0)
+	{
+		while (indexed_list->next != NULL)
+			indexed_list = indexed_list->next;
+		tmp = new_node(get_nbr_index(stack_a, head));
+		indexed_list->next = tmp;
+		head = head->next;
+		index--;
+	}
+	return (head_indexed);
+}
+
+int	get_nbr_index(t_node *stack_a, t_node *head) // zu get_index_nbr andern
+{
+	int	index;
+
 	index = 0;
 	while (stack_a != NULL)
 	{
-		if (stack_a->data < smallest_element->data)
-		{
-			stack_a->data = index;
-		}
-		index++;
+		if (stack_a->data < head->data)
+			index++;
 		stack_a = stack_a->next;
 	}
-}
-
-t_node	*smallest_element_list(t_node *head)
-{
-	int		index;
-	int		size_list;
-	t_node	*smallest_element;
-
-	size_list = list_size(head);
-	smallest_element = head;
-	index = 0;
-	while (index < size_list)
-	{
-		if (smallest_element->data < head->data)
-			smallest_element = head;
-		head = head->next;
-		index++;
-	}
-	return (smallest_element);
+	return (index);
 }
 
 void	printlist(t_node *head)

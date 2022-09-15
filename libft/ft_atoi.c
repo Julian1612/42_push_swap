@@ -6,11 +6,12 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 08:42:33 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/06 09:38:39 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:28:52 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 long	ft_atoi(const char *nptr);
 
 long	ft_atoi(const char *nptr)
