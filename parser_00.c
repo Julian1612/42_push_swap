@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_00.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/15 15:11:42 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:21:40 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	duplicate_check(int index_1, int argc, char **argv) /// nochmal checken ob 
 	}
 }
 
+// muss am schluss die andee linked list noch geloscht werden ????
 t_node	*index_list(t_node *stack_a)
 {
 	int		index;
@@ -113,31 +114,4 @@ t_node	*index_list(t_node *stack_a)
 		index--;
 	}
 	return (head_indexed);
-}
-
-int	get_nbr_index(t_node *stack_a, t_node *head) // zu get_index_nbr andern
-{
-	int	index;
-
-	index = 0;
-	while (stack_a != NULL)
-	{
-		if (stack_a->data < head->data)
-			index++;
-		stack_a = stack_a->next;
-	}
-	return (index);
-}
-
-void	printlist(t_node *head)
-{
-	t_node	*temporary;
-
-	temporary = head;
-	while (temporary != NULL)
-	{
-		printf("%d - ", temporary->data);
-		temporary = temporary->next;
-	}
-	printf("\n");
 }
