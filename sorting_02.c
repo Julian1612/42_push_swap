@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sorting_02.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/19 12:09:44 by jschneid         ###   ########.fr       */
+/*   Created: 2022/09/19 12:03:20 by jschneid          #+#    #+#             */
+/*   Updated: 2022/09/19 12:08:37 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+int	chunk_check(t_node *head, int chunk_start, int chunk_end)
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	stack_a = parser(argc, argv, stack_a);
-	stack_a = index_list(stack_a);
-	pre_sort_stack(&stack_a, &stack_b);
-	sort_stack(&stack_a, &stack_b);
+	while (head != NULL)
+	{
+		if (head->data >= chunk_start && head->data <= chunk_end)
+			return (1);
+		head = head->next;
+	}
 	return (0);
 }
