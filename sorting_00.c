@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/20 20:06:42 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:52:02 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ void	swap_smallest_on_top(t_node **stack_b)
 	if (list_size((*stack_b)) > 1)
 	{
 		smallest_element = smallest_element_list((*stack_b));
-		// printf("%d\n", smallest_element->data);
 		while ((*stack_b)->data == smallest_element->data)
 			rotate_b(stack_b);
 	}
@@ -113,7 +112,7 @@ void	swap_smallest_on_top(t_node **stack_b)
 int	get_chunk_size(t_node **stack)
 {
 	if (list_size((*stack)) < 9)
-		return (0);
+		return (9);
 	else if (list_size((*stack)) >= 10)
 		return (20);
 	else if (list_size((*stack)) >= 500)
