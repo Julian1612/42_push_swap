@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:27:38 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/19 12:06:50 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:42:51 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,10 @@ t_node	*smallest_element_bottom(t_node *head, int chunk_start, int chunk_end)
 		index++;
 	}
 	smallest_element = head;
-	while (index < size_list && head != NULL)
+	while (head != NULL)
 	{
 		if (head->data >= chunk_start && head->data <= chunk_end)
-		{
 			smallest_element = head;
-			return (smallest_element);
-		}
 		head = head->next;
 		index++;
 	}
@@ -80,10 +77,12 @@ t_node	*largest_element_list(t_node *head) // name andern
 	return (largest_element);
 }
 
-int	moves_top(t_node *head, t_node *top)
+int	moves_top(t_node *head, t_node *top, int chunk_start, int chunk_end)
 {
 	int	counter;
 
+	if (top->data < chunk_start || top->data > chunk_end)
+		return (-1);
 	counter = 0;
 	while (head != top)
 	{
@@ -93,10 +92,12 @@ int	moves_top(t_node *head, t_node *top)
 	return (counter);
 }
 
-int	moves_buttom(t_node *buttom)
+int	moves_buttom(t_node *buttom, int chunk_start, int chunk_end)
 {
 	int	counter;
 
+	if (buttom->data < chunk_start || buttom->data > chunk_end)
+		return (-1);
 	counter = 0;
 	while (buttom != NULL)
 	{
