@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/20 14:52:48 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/20 15:16:17 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,31 @@ void	pre_sort_stack(t_node **stack_a, t_node **stack_b)
 	}
 }
 
-// void	sort_stack(t_node **stack_a, t_node **stack_b)
-// {
-// 	while (list_size((*stack_b)) > 0)
-// 		compare_moves_to_a(stack_a, stack_b);
-// }
+void	sort_stack(t_node **stack_a, t_node **stack_b)
+{
+	while (list_size((*stack_b)) > 0)
+		compare_moves_to_a(stack_a, stack_b);
+}
 
-// void	compare_moves_to_a(t_node **stack_a, t_node **stack_b)
-// {
-// 	t_node	*smallest_list;
+void	compare_moves_to_a(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*smallest_list;
 
-// 	smallest_list = largest_element_list((*stack_b));
-// 	if (moves_top((*stack_b), smallest_list)
-// 		< moves_buttom(smallest_list))
-// 	{
-// 		while ((*stack_b)->data != smallest_list->data)
-// 			rotate_b(stack_b);
-// 		push_a(stack_a, stack_b);
-// 	}
-// 	else
-// 	{
-// 		while ((*stack_b)->data != smallest_list->data)
-// 			reverse_rotate_b(stack_b);
-// 		push_a(stack_a, stack_b);
-// 	}
-// }
+	smallest_list = largest_element_list((*stack_b));
+	if (moves_top((*stack_b), smallest_list)
+		< moves_buttom(smallest_list))
+	{
+		while ((*stack_b)->data != smallest_list->data)
+			rotate_b(stack_b);
+		push_a(stack_a, stack_b);
+	}
+	else
+	{
+		while ((*stack_b)->data != smallest_list->data)
+			reverse_rotate_b(stack_b);
+		push_a(stack_a, stack_b);
+	}
+}
 
 void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 	int chunk_start, int chunks_end)
@@ -69,25 +69,22 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 	smallest_top = smallest_element_top((*stack_a), chunk_start, chunks_end);
 	smallest_bottom = smallest_element_bottom((*stack_a),
 			chunk_start, chunks_end);
-	// printf("smallest_top    (ra) : %d\n", smallest_top->data);
-	// printf("smallest_bottom (rra): %d\n", smallest_bottom->data);
-	// printf("move_top        (ra) : %d\nmoves_bottom    (rra): %d\n", moves_top((*stack_a), smallest_top, chunk_start, chunks_end), moves_buttom(smallest_bottom, chunk_start, chunks_end));
-	if (moves_top((*stack_a), smallest_top, chunk_start, chunks_end) < 0)
+	if (smallest_top->data < chunk_start || smallest_top->data > chunks_end)
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
 			reverse_rotate_a(stack_a);
 		push_b(stack_a, stack_b);
 		return ;
 	}
-	if (moves_buttom(smallest_bottom, chunk_start, chunks_end) < 0)
+	else if (smallest_bottom->data < chunk_start || smallest_bottom->data > chunks_end)
 	{
 		while ((*stack_a)->data != smallest_top->data)
 			rotate_a(stack_a);
 		push_b(stack_a, stack_b);
 		return ;
 	}
-	if (moves_top((*stack_a), smallest_top, chunk_start, chunks_end)
-		> moves_buttom(smallest_bottom, chunk_start, chunks_end))
+	if (moves_top((*stack_a), smallest_top)
+		> moves_buttom(smallest_bottom))
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
 			reverse_rotate_a(stack_a);

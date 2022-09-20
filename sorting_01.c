@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:27:38 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/20 11:42:51 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/20 15:14:20 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,10 @@ t_node	*largest_element_list(t_node *head) // name andern
 	return (largest_element);
 }
 
-int	moves_top(t_node *head, t_node *top, int chunk_start, int chunk_end)
+int	moves_top(t_node *head, t_node *top)
 {
 	int	counter;
 
-	if (top->data < chunk_start || top->data > chunk_end)
-		return (-1);
 	counter = 0;
 	while (head != top)
 	{
@@ -92,12 +90,10 @@ int	moves_top(t_node *head, t_node *top, int chunk_start, int chunk_end)
 	return (counter);
 }
 
-int	moves_buttom(t_node *buttom, int chunk_start, int chunk_end)
+int	moves_buttom(t_node *buttom)
 {
 	int	counter;
 
-	if (buttom->data < chunk_start || buttom->data > chunk_end)
-		return (-1);
 	counter = 0;
 	while (buttom != NULL)
 	{
