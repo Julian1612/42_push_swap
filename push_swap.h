@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/20 15:16:58 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/20 18:11:14 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,18 @@ void	push_largest_element(t_node **head);
 t_node	*smallest_element_top(t_node *head, int chunk_start, int chunk_end);
 t_node	*smallest_element_bottom(t_node *head, int chunk_start, int chunk_end);
 void	compare_moves_to_a(t_node **stack_a, t_node **stack_b);
-void		compare_moves_to_b(t_node **stack_a, t_node **stack_b,
+void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 			int chunk_start, int chunks_end);
 int		moves_top(t_node *head, t_node *top);
 int		moves_buttom(t_node *buttom);
 void	pre_sort_stack(t_node **stack_a, t_node **stack_b);
 void	sort_stack(t_node **stack_a, t_node **stack_b);
-t_node	*largest_element_list(t_node *head);
+t_node	*smallest_element_list(t_node *head);
 int		get_chunk_size(t_node **stack_a);
 t_node	*index_list(t_node *stack_a);
 t_node	*smallest_element_list(t_node *head);
 int		get_nbr_index(t_node *stack_a, t_node *head);
 int		chunk_check(t_node *head, int chunk_start, int chunk_end);
+void	swap_smallest_on_top(t_node **stack_b);
 
 #endif

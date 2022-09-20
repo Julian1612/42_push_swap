@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/20 15:16:17 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/20 20:06:42 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,11 @@ void	pre_sort_stack(t_node **stack_a, t_node **stack_b)
 	chunk_size = chunk;
 	while (list_size((*stack_a)) > 0)
 	{
-		// printf("stack_b: ");
-		// printlist((*stack_b));
-		// printf("------------------------------\n");
-		// printf("list size: %d\n", list_size((*stack_a)));
-		// printf("stack_a: ");
-		// printlist((*stack_a));
-		// printf("chuk_start           : %d\nchuk_end             : %d\n", (chunk_size - chunk), (chunk_size - 1));
-		if (chunk_check((*stack_a), (chunk_size - chunk), (chunk_size - 1)) == 0)
+		if (chunk_check((*stack_a), (chunk_size - chunk),
+				(chunk_size - 1)) == 0)
 			chunk_size += chunk;
-		compare_moves_to_b(stack_a, stack_b, (chunk_size - chunk), (chunk_size - 1));
+		compare_moves_to_b(stack_a, stack_b, (chunk_size - chunk),
+			(chunk_size - 1));
 	}
 }
 
@@ -44,7 +39,7 @@ void	compare_moves_to_a(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*smallest_list;
 
-	smallest_list = largest_element_list((*stack_b));
+	smallest_list = smallest_element_list((*stack_b));
 	if (moves_top((*stack_b), smallest_list)
 		< moves_buttom(smallest_list))
 	{
@@ -73,6 +68,7 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
 			reverse_rotate_a(stack_a);
+		swap_smallest_on_top(stack_b);
 		push_b(stack_a, stack_b);
 		return ;
 	}
@@ -80,6 +76,7 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 	{
 		while ((*stack_a)->data != smallest_top->data)
 			rotate_a(stack_a);
+		swap_smallest_on_top(stack_b);
 		push_b(stack_a, stack_b);
 		return ;
 	}
@@ -88,13 +85,28 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
 			reverse_rotate_a(stack_a);
+		swap_smallest_on_top(stack_b);
 		push_b(stack_a, stack_b);
 	}
 	else
 	{
 		while ((*stack_a)->data != smallest_top->data)
 			rotate_a(stack_a);
+		swap_smallest_on_top(stack_b);
 		push_b(stack_a, stack_b);
+	}
+}
+
+void	swap_smallest_on_top(t_node **stack_b)
+{
+	t_node	*smallest_element;
+
+	if (list_size((*stack_b)) > 1)
+	{
+		smallest_element = smallest_element_list((*stack_b));
+		// printf("%d\n", smallest_element->data);
+		while ((*stack_b)->data == smallest_element->data)
+			rotate_b(stack_b);
 	}
 }
 
