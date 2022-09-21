@@ -6,11 +6,23 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 12:03:20 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/21 12:16:26 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:47:10 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_chunk_size(t_node **stack)
+{
+	if (list_size((*stack)) < 9)
+		return (9);
+	else if (list_size((*stack)) >= 10)
+		return (20);
+	else if (list_size((*stack)) >= 500)
+		return (50);
+	else
+		return (0);
+}
 
 int	chunk_check(t_node *head, int chunk_start, int chunk_end)
 {

@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/21 12:16:46 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/21 18:50:40 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,26 @@ int	main(int argc, char *argv[])
 	stack_a = index_list(stack_a);
 	chunk = get_chunk_size(&stack_a);
 	chunk_size = chunk;
-	if (list_size(stack_a) < 4)
+	if (list_size(stack_a) == 3)
 	{
 		sort_three_elemens(stack_a);
 		return (0);
 	}
 	pre_sort_stack(&stack_a, &stack_b, chunk, chunk_size);
 	sort_stack(&stack_a, &stack_b);
+	free_list(stack_a);
 	return (0);
+}
+
+void	free_list(t_node *list)
+{
+	t_node	*tmp;
+
+	tmp = NULL;
+	while (list != NULL)
+	{
+		tmp = list->next;
+		free(list);
+		list = tmp;
+	}
 }

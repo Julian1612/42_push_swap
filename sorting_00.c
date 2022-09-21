@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/21 10:35:44 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/21 14:08:26 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 	t_node	*smallest_bottom;
 
 	smallest_top = smallest_element_top((*stack_a), chunk_start, chunks_end);
-	smallest_bottom = smallest_element_bottom((*stack_a),
-			chunk_start, chunks_end);
+	smallest_bottom = smallest_element_bottom((*stack_a), chunk_start, chunks_end);
 	if (smallest_top->data < chunk_start || smallest_top->data > chunks_end)
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
@@ -75,8 +74,7 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 		push_b(stack_a, stack_b);
 		return ;
 	}
-	if (moves_top((*stack_a), smallest_top)
-		> moves_buttom(smallest_bottom))
+	if (moves_top((*stack_a), smallest_top) > moves_buttom(smallest_bottom))
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
 			reverse_rotate_a(stack_a);
@@ -102,16 +100,4 @@ void	swap_smallest_on_top(t_node **stack_b)
 		while ((*stack_b)->data == smallest_element->data)
 			rotate_b(stack_b);
 	}
-}
-
-int	get_chunk_size(t_node **stack)
-{
-	if (list_size((*stack)) < 9)
-		return (9);
-	else if (list_size((*stack)) >= 10)
-		return (20);
-	else if (list_size((*stack)) >= 500)
-		return (50);
-	else
-		return (0);
 }

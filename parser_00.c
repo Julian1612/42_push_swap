@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/15 18:21:40 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:17:17 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,8 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	int		index;
 	t_node	*tmp;
 
-	if (argc == 2)
-	{
-		write(2, "aError\n", 7);
+	if (argc == 1 || argc == 2)
 		exit(0);
-	}
 	index = argc - 1;
 	while (index > 0)
 	{
@@ -70,7 +67,7 @@ int	input_check(int index_1, int argc, char **argv)
 	return (current_number);
 }
 
-void	duplicate_check(int index_1, int argc, char **argv) /// nochmal checken ob wirklich funktioniert
+void	duplicate_check(int index_1, int argc, char **argv)
 {
 	int	index_2;
 
@@ -113,5 +110,8 @@ t_node	*index_list(t_node *stack_a)
 		head = head->next;
 		index--;
 	}
+	if (check_if_sorted(head_indexed) == 0)
+		exit(0);
+	free_list(stack_a);
 	return (head_indexed);
 }
