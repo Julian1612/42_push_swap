@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:21:42 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/21 19:17:48 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/21 21:00:26 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_if_sorted(t_node *stack_a)
 	return (0);
 }
 
-void	printlist(t_node *head)
+void	printlist(t_node *head) // loeschen am ende
 {
 	t_node	*temporary;
 

@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/21 19:17:17 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/21 20:59:48 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void	duplicate_check(int index_1, int argc, char **argv)
 	}
 }
 
-// muss am schluss die andee linked list noch geloscht werden ????
 t_node	*index_list(t_node *stack_a)
 {
 	int		index;
