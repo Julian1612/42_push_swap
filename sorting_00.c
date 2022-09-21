@@ -6,19 +6,14 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/20 20:52:02 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:35:44 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pre_sort_stack(t_node **stack_a, t_node **stack_b)
+void	pre_sort_stack(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size)
 {
-	int	chunk_size;
-	int	chunk;
-
-	chunk = get_chunk_size(stack_a);
-	chunk_size = chunk;
 	while (list_size((*stack_a)) > 0)
 	{
 		if (chunk_check((*stack_a), (chunk_size - chunk),
