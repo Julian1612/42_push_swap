@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 22:23:22 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 23:42:41 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_node	*get_last_node(t_node *head);
 int		list_size(t_node *head);
 t_node	*get_penultimte_node(t_node *head);
 int		input_check(int index_1, char **argv, int *value);
-int		duplicate_check(t_node* head);
+int		duplicate_check(t_node *head);
 void	swap_a(t_node **head);
 void	swap_b(t_node **head);
 void	swap_stacks(t_node **stack_a, t_node **stack_b);

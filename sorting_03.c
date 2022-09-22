@@ -6,13 +6,13 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:41:31 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 15:13:25 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 23:48:51 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_five_elements(t_node **stack_a, t_node **stack_b) // nae andern moe tahn foe oder so ka
+void	sort_five_elements(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*smallest_element;
 	t_node	*biggest_element;

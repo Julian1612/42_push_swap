@@ -6,13 +6,13 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:21:42 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 23:25:52 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/23 00:31:07 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_nbr_index(t_node *stack_a, t_node *head) // zu get_index_nbr andern
+int	get_nbr_index(t_node *stack_a, t_node *head)
 {
 	int	index;
 
@@ -41,15 +41,76 @@ int	check_if_sorted(t_node *stack_a)
 	return (0);
 }
 
-void	printlist(t_node *head) // loeschen am ende
+int	input_check(int index_1, char **argv, int *value)
 {
-	t_node	*temporary;
+	size_t		index_2;
+	long		current_number;
 
-	temporary = head;
-	while (temporary != NULL)
+	current_number = ft_atoi(argv[index_1]);
+	if (current_number > INT_MAX || current_number < INT_MIN)
 	{
-		printf("%d - ", temporary->data);
-		temporary = temporary->next;
+		write(2, "Error\n", 6);
+		exit(0);
 	}
-	printf("\n");
+	index_2 = 0;
+	while (index_2 < ft_strlen(argv[index_1]))
+	{
+		if (argv[index_1][index_2] == '-' || argv[index_1][index_2] == '+'
+			|| argv[index_1][index_2] == '"' || argv[index_1][index_2] == ' ')
+			index_2++;
+		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
+		{
+			write(2, "Error\n", 6);
+			exit(0);
+		}
+		index_2++;
+	}
+	*value = current_number;
+	return (0);
+}
+
+t_node	*index_list(t_node *stack_a)
+{
+	int		index;
+	t_node	*indexed_list;
+	t_node	*tmp;
+	t_node	*head;
+	t_node	*head_indexed;
+
+	head = stack_a;
+	indexed_list = new_node(get_nbr_index(stack_a, head));
+	head_indexed = indexed_list;
+	head = head->next;
+	index = (list_size(stack_a) - 1);
+	while (index > 0)
+	{
+		while (indexed_list->next != NULL)
+			indexed_list = indexed_list->next;
+		tmp = new_node(get_nbr_index(stack_a, head));
+		indexed_list->next = tmp;
+		head = head->next;
+		index--;
+	}
+	if (check_if_sorted(head_indexed) == 0)
+		exit(0);
+	free_list(stack_a);
+	return (head_indexed);
+}
+
+int	duplicate_check(t_node *head)
+{
+	t_node	*tmp;
+
+	while (head)
+	{
+		tmp = head->next;
+		while (tmp)
+		{
+			if (head->data == tmp->data)
+				return (1);
+			tmp = tmp->next;
+		}
+		head = head->next;
+	}
+	return (0);
 }
