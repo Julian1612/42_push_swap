@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/19 12:03:20 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/21 16:47:10 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:11:27 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void	sort_three_elemens(t_node *stack_a)
 	t_node	*second;
 	t_node	*third;
 
-	second = NULL;
-	third = NULL;
 	second = get_second_element(stack_a);
 	third = get_third_element(stack_a);
 	if (stack_a->data == 1 && second->data == 0 && third->data == 2)

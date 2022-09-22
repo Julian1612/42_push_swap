@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/21 19:04:36 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:41:29 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,16 @@ void	sort_three_elemens(t_node *stack_a);
 void	sort_five_elemens(t_node **stack_a, t_node **stack_b);
 void	push_first_and_last(t_node **stack_a, t_node **stack_b,
 			t_node **first, t_node **fifth);
-void	sort_elements(t_node *stack_a);
 void	free_list(t_node *list);
 int		check_if_sorted(t_node *stack_a);
+t_node	*get_smallest_node(t_node *stack_a);
+void	push_smallest_element(t_node **stack_a, t_node **stack_b,
+			t_node *smallest_element);
+void	sort_five_elements(t_node **stack_a, t_node **stack_b);
+t_node	*get_biggest_node(t_node *stack_a);
+void	push_last_element(t_node **stack_a, t_node **stack_b);
+void	push_biggest_element(t_node **stack_a, t_node **stack_b,
+			t_node *biggest_element);
+void	sort_elements(t_node **stack_a);
 
 #endif

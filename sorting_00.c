@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/21 14:08:26 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 10:03:32 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
 			reverse_rotate_a(stack_a);
-		swap_smallest_on_top(stack_b);
+		swap_smallest_on_top(stack_b);// name aendern weill ja nicht dass smallest on top ist (roatate_stack)
 		push_b(stack_a, stack_b);
 	}
 	else
