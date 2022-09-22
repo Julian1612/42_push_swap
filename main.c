@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 13:34:37 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 13:40:52 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
 		swap_a(&stack_a);
 	if (list_size(stack_a) == 3)
 		sort_three_elemens(stack_a);
-	if (list_size(stack_a) > 3)
+	if (list_size(stack_a) > 3 && list_size(stack_a) < 5)
 		sort_five_elements(&stack_a, &stack_b);
 	if (list_size(stack_a) > 5)
 	{
