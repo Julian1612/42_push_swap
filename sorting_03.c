@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:41:31 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 10:57:40 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:47:01 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	sort_elements(t_node **stack_a)
 	t_node	*third;
 
 	second = get_second_element((*stack_a));
-	if (list_size((*stack_a)) == 2 && (*stack_a)->data == 2 && second->data == 1)
+	if (list_size((*stack_a)) == 2 && (*stack_a)->data == 2
+		&& second->data == 1)
 	{
 		swap_a(stack_a);
 		return ;
@@ -91,32 +92,4 @@ void	push_biggest_element(t_node **stack_a, t_node **stack_b,
 			rotate_a(stack_a);
 		push_b(stack_a, stack_b);
 	}
-}
-
-t_node	*get_smallest_node(t_node *stack_a)
-{
-	t_node	*smallest_element;
-
-	smallest_element = NULL;
-	while (stack_a->data != 0)
-		stack_a = stack_a->next;
-	smallest_element = stack_a;
-	return (smallest_element);
-}
-
-t_node	*get_biggest_node(t_node *stack_a)
-{
-	t_node	*biggest_element;
-
-	biggest_element = NULL;
-	biggest_element = stack_a;
-	while (stack_a != NULL)
-	{
-		if (stack_a->data > biggest_element->data)
-		{
-			biggest_element = stack_a;
-		}
-		stack_a = stack_a->next;
-	}
-	return (biggest_element);
 }

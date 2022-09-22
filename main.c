@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 13:40:52 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:47:49 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,4 @@ int	main(int argc, char *argv[])
 	free_list(stack_a);
 	// system("leaks push_swap");
 	return (0);
-}
-
-void	free_list(t_node *list)
-{
-	t_node	*tmp;
-
-	tmp = NULL;
-	while (list != NULL)
-	{
-		tmp = list->next;
-		free(list);
-		list = tmp;
-	}
 }

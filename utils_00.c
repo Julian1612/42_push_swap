@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 11:47:43 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/07 17:27:23 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:40:58 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,17 @@ t_node	*get_penultimte_node(t_node *head)
 		index++;
 	}
 	return (stack_a);
+}
+
+void	free_list(t_node *list)
+{
+	t_node	*tmp;
+
+	tmp = NULL;
+	while (list != NULL)
+	{
+		tmp = list->next;
+		free(list);
+		list = tmp;
+	}
 }

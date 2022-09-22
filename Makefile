@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 10:32:35 by jschneid          #+#    #+#              #
-#    Updated: 2022/09/21 20:50:03 by jschneid         ###   ########.fr        #
+#    Updated: 2022/09/22 14:47:34 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS = -Wall -Werror -Wextra
 
 MANDATORY = main.c parser_00.c parser_01.c opperations_00.c opperations_01.c \
 opperations_02.c opperations_03.c sorting_00.c sorting_01.c sorting_02.c sorting_03.c \
-utils_00.c
+sorting_04.c utils_00.c
 
 CC = gcc
 

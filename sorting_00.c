@@ -6,13 +6,14 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 10:03:32 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:44:58 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pre_sort_stack(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size)
+void	pre_sort_stack(t_node **stack_a, t_node **stack_b,
+	int chunk, int chunk_size)
 {
 	while (list_size((*stack_a)) > 0)
 	{
@@ -57,7 +58,8 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 	t_node	*smallest_bottom;
 
 	smallest_top = smallest_element_top((*stack_a), chunk_start, chunks_end);
-	smallest_bottom = smallest_element_bottom((*stack_a), chunk_start, chunks_end);
+	smallest_bottom = smallest_element_bottom((*stack_a), chunk_start,
+			chunks_end);
 	if (smallest_top->data < chunk_start || smallest_top->data > chunks_end)
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
@@ -66,7 +68,8 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 		push_b(stack_a, stack_b);
 		return ;
 	}
-	else if (smallest_bottom->data < chunk_start || smallest_bottom->data > chunks_end)
+	else if (smallest_bottom->data < chunk_start
+		|| smallest_bottom->data > chunks_end)
 	{
 		while ((*stack_a)->data != smallest_top->data)
 			rotate_a(stack_a);
