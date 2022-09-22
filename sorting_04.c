@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:47:03 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 14:47:17 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:24:59 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,16 @@ t_node	*get_biggest_node(t_node *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (biggest_element);
+}
+
+void	swap_smallest_on_top(t_node **stack_b)
+{
+	t_node	*smallest_element;
+
+	if (list_size((*stack_b)) > 1)
+	{
+		smallest_element = smallest_element_list((*stack_b));
+		while ((*stack_b)->data == smallest_element->data)
+			rotate_b(stack_b);
+	}
 }

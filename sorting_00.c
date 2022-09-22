@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:33:56 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 14:44:58 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 15:53:41 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,12 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 		push_b(stack_a, stack_b);
 		return ;
 	}
+	move_to_b(stack_a, stack_b, smallest_top, smallest_bottom);
+}
+
+void	move_to_b(t_node **stack_a, t_node **stack_b,
+	t_node *smallest_top, t_node *smallest_bottom)
+{
 	if (moves_top((*stack_a), smallest_top) > moves_buttom(smallest_bottom))
 	{
 		while ((*stack_a)->data != smallest_bottom->data)
@@ -90,17 +96,5 @@ void	compare_moves_to_b(t_node **stack_a, t_node **stack_b,
 			rotate_a(stack_a);
 		swap_smallest_on_top(stack_b);
 		push_b(stack_a, stack_b);
-	}
-}
-
-void	swap_smallest_on_top(t_node **stack_b)
-{
-	t_node	*smallest_element;
-
-	if (list_size((*stack_b)) > 1)
-	{
-		smallest_element = smallest_element_list((*stack_b));
-		while ((*stack_b)->data == smallest_element->data)
-			rotate_b(stack_b);
 	}
 }
