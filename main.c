@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 15:12:25 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 23:25:39 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	main(int argc, char *argv[])
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_a = parser(argc, argv, stack_a);
+	if (stack_a == NULL)
+	{
+		system("leaks push_swap");
+		return (1);
+	}
 	stack_a = index_list(stack_a);
 	chunk = get_chunk_size(&stack_a);
 	chunk_size = chunk;

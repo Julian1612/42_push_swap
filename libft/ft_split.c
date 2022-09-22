@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 14:27:41 by jschneid          #+#    #+#             */
-/*   Updated: 2022/06/03 14:11:53 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:54:52 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char		**ft_split(char const *s, char c);
 static char	**get_mem(char const *s, char c);
 static int	count_words(char const *s, char c);
 static void	get_strings(char const *s, char c, char **array);
-static void	ft_free(char **array, int j);
+void		ft_free(char **array, int j);
 
 char	**ft_split(char const *s, char c)
 {
@@ -83,7 +83,7 @@ static void	get_strings(char const *s, char c, char **array)
 	array[j] = NULL;
 }
 
-static void	ft_free(char **array, int j)
+void	ft_free(char **array, int j)
 {
 	int	i;
 
@@ -93,4 +93,5 @@ static void	ft_free(char **array, int j)
 		free (array[i]);
 		i++;
 	}
+	free (array);
 }

@@ -6,13 +6,12 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 15:27:38 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/20 15:34:38 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:07:58 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// pointer rein meddeln
 t_node	*smallest_element_top(t_node *head, int chunk_start, int chunk_end)
 {
 	int		index;

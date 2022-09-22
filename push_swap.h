@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 15:51:39 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:23:22 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int		size_stack(t_node *stack);
 t_node	*get_last_node(t_node *head);
 int		list_size(t_node *head);
 t_node	*get_penultimte_node(t_node *head);
-int		input_check(int index_1, int argc, char **argv);
-void	duplicate_check(int index_1, int argc, char **argv);
+int		input_check(int index_1, char **argv, int *value);
+int		duplicate_check(t_node* head);
 void	swap_a(t_node **head);
 void	swap_b(t_node **head);
 void	swap_stacks(t_node **stack_a, t_node **stack_b);
@@ -93,5 +93,6 @@ void	sort_elements(t_node **stack_a);
 void	sort_element_util(t_node *stack_a, t_node *second, t_node *third);
 void	move_to_b(t_node **stack_a, t_node **stack_b,
 			t_node *smallest_top, t_node *smallest_bottom);
+int		array_length(char **a);
 
 #endif

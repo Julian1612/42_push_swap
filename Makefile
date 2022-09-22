@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 10:32:35 by jschneid          #+#    #+#              #
-#    Updated: 2022/09/22 14:47:34 by jschneid         ###   ########.fr        #
+#    Updated: 2022/09/22 22:57:34 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,19 +18,25 @@ MANDATORY = main.c parser_00.c parser_01.c opperations_00.c opperations_01.c \
 opperations_02.c opperations_03.c sorting_00.c sorting_01.c sorting_02.c sorting_03.c \
 sorting_04.c utils_00.c
 
+LIB = ./libft/libft.a
+
 CC = gcc
 
 OBJ = $(MANDATORY:.c=.o)
 
-all: $(NAME)
+all: lib $(NAME)
 
 %.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJ)
-	@make bonus -C libft/
-	@mv ./libft/libft.a ./
-	@$(CC) $(FLAGS) $(OBJ) -L. -lft -o $(NAME)
+lib:
+	$(MAKE) -C libft/
+
+
+# $(NAME):
+$(NAME): $(OBJ) $(LIB)
+	cp ./libft/libft.a ./
+	$(CC) $(FLAGS) $(OBJ) -L. -lft -o $(NAME)
 	@echo "make done"
 
 clean:

@@ -6,28 +6,83 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 14:45:30 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/22 23:25:08 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+t_node	*create_list(char** arr) {
+	int 	index;
+	int 	data;
+	t_node	*ret;
+	t_node	*head;
+	index = 1;
+
+	if (input_check(0, arr, &data))
+		return (NULL);
+	ret = head = new_node(data);
+	while (arr[index])
+	{
+		if (input_check(index, arr, &data))
+		{
+			free_list(ret);
+			return (NULL);
+		}
+		head->next = new_node(data);
+		head = head->next;
+		head->next = NULL;
+		index++;
+	}
+	return ret;
+}
+
+static t_node	*arr_to_list(char** arr, int *error)
+{
+	t_node	*ret;
+	t_node	*tmp;
+	t_node	*tmp1;
+	char	**array;
+
+	if(arr[0] == NULL)
+		return NULL;
+	array = ft_split(arr[0], ' ');
+	ret = tmp1 = create_list(array);
+	ft_free(array, array_length(array));
+	if (!tmp1)
+		*error = 1;
+	while (tmp1 && tmp1->next)
+		tmp1 = tmp1->next;
+	tmp = arr_to_list(&arr[1], error);
+	tmp1->next = tmp;
+	return(ret);
+}
+
 t_node	*parser(int argc, char **argv, t_node *head)
 {
-	int		index;
-	t_node	*tmp;
+	int		error;
 
-	if (argc < 2)
+	error = 0;
+	if (argc == 1) //./pushswap 1
 		exit(0);
-	index = argc - 1;
-	while (index > 0)
+	head = arr_to_list(&argv[1], &error);
+	error += duplicate_check(head);
+	if (error)
 	{
-		tmp = new_node(input_check(index, argc, argv));
-		tmp->next = head;
-		head = tmp;
-		index--;
+		free_list(head);
+		return (NULL);
 	}
 	return (head);
+}
+
+int	array_length(char **a)
+{
+	int	index;
+
+	index = 0;
+	while (a[index] != NULL)
+		index++;
+	return (index);
 }
 
 t_node	*new_node(int value)
@@ -40,16 +95,18 @@ t_node	*new_node(int value)
 	return (stack);
 }
 
-int	input_check(int index_1, int argc, char **argv)
+int	input_check(int index_1, char **argv, int *value)
 {
 	size_t		index_2;
 	long		current_number;
 
-	duplicate_check(index_1, argc, argv);
+	// if(duplicate_check(index_1, argv))
+	// 	return (1);
 	current_number = ft_atoi(argv[index_1]);
 	if (current_number > INT_MAX || current_number < INT_MIN)
 	{
 		write(2, "bError\n", 7);// andern !!!!
+		system("leaks push_swap");
 		exit(0);
 	}
 	index_2 = 0;
@@ -61,31 +118,49 @@ int	input_check(int index_1, int argc, char **argv)
 		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
 		{
 			write(2, "cError\n", 7);
+			system("leaks push_swap");
 			exit(0);
 		}
 		index_2++;
 	}
-	return (current_number);
+	*value = current_number;
+	return (0);
 }
 
-void	duplicate_check(int index_1, int argc, char **argv)
-{
-	int	index_2;
+// int	duplicate_check(int index_1, char **argv)
+// {
+// 	int	index_2;
 
-	index_2 = argc - 1;
-	while (index_2 > 0)
+// 	index_2 = index_1 + 1;
+// 	while (argv[index_2])
+// 	{
+// 		if (ft_strcmp(argv[index_2], argv[index_1]) == 0)
+// 		{
+// 			write(2, "dError\n", 7);
+// 			return (1);
+// 		}
+// 		index_2++;
+// 	}
+// 	return (0);
+// }
+
+int	duplicate_check(t_node* head)
+{
+	t_node	*tmp;
+
+	while (head)
 	{
-		if (index_2 == index_1)
-			index_2--;
-		if (index_2 == 0)
-			return ;
-		if (ft_atoi(argv[index_1]) == ft_atoi(argv[index_2]))
+		tmp = head->next;
+		while (tmp)
 		{
-			write(2, "dError\n", 7);
-			exit(0);
+			if(head->data == tmp->data)
+			return (1);
+			tmp = tmp->next;
 		}
-		index_2--;
+		head = head->next;
+
 	}
+	return (0);
 }
 
 t_node	*index_list(t_node *stack_a)
