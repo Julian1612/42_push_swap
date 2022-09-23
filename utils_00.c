@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_00.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jschneid <jschneid@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 11:47:43 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 23:47:40 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:05:52 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	list_size(t_node *head)
 {
 	int	index;
 
-	if (head == 0)
+	if (head == NULL)
 		return (0);
 	index = 0;
 	while (head != NULL)
