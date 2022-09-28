@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/22 23:42:41 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:17:35 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ void	sort_element_util(t_node *stack_a, t_node *second, t_node *third);
 void	move_to_b(t_node **stack_a, t_node **stack_b,
 			t_node *smallest_top, t_node *smallest_bottom);
 int		array_length(char **a);
+void	sorting(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size);
 
 #endif

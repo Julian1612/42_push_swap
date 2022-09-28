@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 10:32:35 by jschneid          #+#    #+#              #
-#    Updated: 2022/09/23 00:13:21 by jschneid         ###   ########.fr        #
+#    Updated: 2022/09/28 12:07:47 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,13 @@ all: lib $(NAME)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 lib:
-	$(MAKE) -C libft/
+	@$(MAKE) -C libft/
 
 
 # $(NAME):
 $(NAME): $(OBJ) $(LIB)
-	cp ./libft/libft.a ./
-	$(CC) $(FLAGS) $(OBJ) -L. -lft -o $(NAME)
+	@cp ./libft/libft.a ./
+	@$(CC) $(FLAGS) $(OBJ) -L. -lft -o $(NAME)
 	@echo "make done"
 
 clean:
