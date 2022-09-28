@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   opperations_01.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jschneid <jschneid@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:22:27 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/09 13:01:06 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:15:57 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,12 @@ void	swap_stacks(t_node **stack_a, t_node **stack_b)
 // (pa) Take the first element at the top of b and put it at the top of a.
 void	push_a(t_node **stack_a, t_node **stack_b)
 {
-	if (list_size((*stack_b)) > 0)
+	if (stack_a != NULL)
 	{
+		if (list_size((*stack_b)) > 0)
+		{
 		push(stack_b, stack_a);
 		ft_printf("pa\n");
+		}
 	}
 }
