@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   opperations_01.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschneid <jschneid@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 17:22:27 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/23 11:15:57 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:01:14 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	push_a(t_node **stack_a, t_node **stack_b)
 	{
 		if (list_size((*stack_b)) > 0)
 		{
-		push(stack_b, stack_a);
-		ft_printf("pa\n");
+			push(stack_b, stack_a);
+			ft_printf("pa\n");
 		}
 	}
 }

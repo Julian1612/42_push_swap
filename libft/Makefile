@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/29 11:22:21 by jschneid          #+#    #+#              #
-#    Updated: 2022/09/22 19:19:21 by jschneid         ###   ########.fr        #
+#    Updated: 2022/09/28 17:03:21 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,23 +33,23 @@ OBJB = $(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar r $(NAME) $(OBJ)
+	ar r $(NAME) $(OBJ)
 
 $(OBJ): $(MANDATORY)
-	@cc $(FLASG) -c $(MANDATORY)
+	cc $(FLASG) -c $(MANDATORY)
 
 clean:
-	@/bin/rm -f $(OBJ) $(OBJB)
+	/bin/rm -f $(OBJ) $(OBJB)
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	/bin/rm -f $(NAME)
 
 re: fclean all
 
 bonus: $(OBJ) $(OBJB)
-	@ar r $(NAME) $(OBJ) $(OBJB)
+	ar r $(NAME) $(OBJ) $(OBJB)
 
 $(OBJB): $(BONUS)
-	@cc $(FLASG) -c $(BONUS)
+	cc $(FLASG) -c $(BONUS)
 
 .PHONY:			all bonus clean fclean re
