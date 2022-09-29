@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:21:42 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/29 20:26:00 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 21:55:06 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,25 @@ int	get_nbr_index(t_node *stack_a, t_node *head)
 	return (index);
 }
 
-int	check_if_sorted(t_node *stack_a)
+int	check_if_sorted(t_node *stack_a, t_node *stack_b)
 {
 	int		index;
+	int		error;
 
 	index = 0;
+	error = 0;
 	while (stack_a != NULL)
 	{
 		if (stack_a->data != index)
-			return (1);
+			error = 1;
 		stack_a = stack_a->next;
 		index++;
+	}
+	if (error == 0)
+	{
+		free_list(stack_a);
+		free_list(stack_b);
+		exit(1);
 	}
 	return (0);
 }
@@ -72,12 +80,7 @@ t_node	*index_list(t_node *stack_a)
 		head = head->next;
 		index--;
 	}
-	if (check_if_sorted(head_indexed) == 0)
-	{
-		free_list(stack_a);
-		free_list(head_indexed);
-		exit(0);
-	}
+	check_if_sorted(head_indexed, head_indexed);
 	free_list(stack_a);
 	return (head_indexed);
 }
