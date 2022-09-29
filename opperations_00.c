@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 17:32:57 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/28 18:48:05 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 20:05:34 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,4 @@ void	reverse_rotate(t_node **head)
 	(*head) = last_node;
 	last_node->next = temporary;
 	penultimate_node->next = NULL;
-	// free(last_node);
 }

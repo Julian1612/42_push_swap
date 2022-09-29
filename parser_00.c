@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/29 17:06:13 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 20:26:07 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@ t_node	*create_list(char **arr)
 	t_node	*ret;
 	t_node	*head;
 
-	ret = NULL;
 	index = 1;
-	if (input_check(0, arr, &data, ret))
+	if (get_int(0, arr, &data))
 		return (NULL);
 	ret = new_node(data);
 	head = ret;
 	while (arr[index])
 	{
-		if (input_check(index, arr, &data, ret))
+		if (get_int(index, arr, &data))
 		{
 			free_list(ret);
 			return (NULL);
@@ -69,6 +68,7 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	error = 0;
 	if (argc == 1)
 		exit(0);
+	input_checker(argv);
 	head = arr_to_list(&argv[1], &error);
 	error += duplicate_check(head);
 	if (error)
@@ -79,6 +79,39 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	return (head);
 }
 
+int	input_checker(char **argv)
+{
+	size_t		index_2;
+	long		current_number;
+	int			index_1;
+
+	index_1 = 1;
+	while (argv[index_1] != '\0')
+	{
+		current_number = ft_atoi(argv[index_1]);
+		if (current_number > INT_MAX || current_number < INT_MIN)
+		{
+			write(2, "12Error\n", 8);
+			exit(0);
+		}
+		index_2 = 0;
+		while (index_2 < ft_strlen(argv[index_1]))
+		{
+			if (argv[index_1][index_2] == '-' || argv[index_1][index_2] == '+'
+			|| argv[index_1][index_2] == '"' || argv[index_1][index_2] == ' ')
+			index_2++;
+			if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
+			{
+				write(2, "12Error\n", 8);
+				exit(0);
+			}
+			index_2++;
+		}
+		index_1++;
+	}
+	return (0);
+}
+
 int	array_length(char **a)
 {
 	int	index;
@@ -87,14 +120,4 @@ int	array_length(char **a)
 	while (a[index] != NULL)
 		index++;
 	return (index);
-}
-
-t_node	*new_node(int value)
-{
-	t_node	*stack;
-
-	stack = (t_node *) malloc(sizeof(t_node));
-	stack->data = value;
-	stack->next = NULL;
-	return (stack);
 }

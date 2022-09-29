@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parser_02.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/29 20:05:29 by jschneid         ###   ########.fr       */
+/*   Created: 2022/09/29 20:25:46 by jschneid          #+#    #+#             */
+/*   Updated: 2022/09/29 20:26:11 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+t_node	*new_node(int value)
 {
-	int		chunk_size;
-	int		chunk;
-	t_node	*stack_a;
-	t_node	*stack_b;
+	t_node	*stack;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	stack_a = parser(argc, argv, stack_a);
-	if (stack_a == NULL)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	stack_a = index_list(stack_a);
-	chunk = get_chunk_size(&stack_a);
-	chunk_size = chunk;
-	sorting(&stack_a, &stack_b, chunk, chunk_size);
-	free_list(stack_a);
-	return (0);
+	stack = (t_node *) malloc(sizeof(t_node));
+	stack->data = value;
+	stack->next = NULL;
+	return (stack);
 }

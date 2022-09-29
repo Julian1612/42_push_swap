@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:47:03 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/29 14:40:34 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 20:06:27 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,4 @@ void	sorting(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size)
 		pre_sort_stack(stack_a, stack_b, chunk, chunk_size);
 		sort_stack(stack_a, stack_b);
 	}
-	printf("sorting: %d\n", (*stack_a)->data);
 }
