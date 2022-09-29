@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:41:31 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/28 18:47:38 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:21:26 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ void	sort_elements(t_node **stack_a)
 	}
 	third = get_third_element((*stack_a));
 	sort_element_util((*stack_a), second, third);
-	free(second);
-	free(third);
 }
 
 void	sort_element_util(t_node *stack_a, t_node *second, t_node *third)

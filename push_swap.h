@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/28 15:17:35 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:40:36 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ t_node	*get_first_element(t_node *stack_a);
 t_node	*get_second_element(t_node *stack_a);
 t_node	*get_third_element(t_node *stack_a);
 t_node	*get_fifth_element(t_node *stack_a);
-void	sort_three_elemens(t_node *stack_a);
+void	sort_three_elemens(t_node **stack_a);
 void	sort_five_elemens(t_node **stack_a, t_node **stack_b);
 void	push_first_and_last(t_node **stack_a, t_node **stack_b,
 			t_node **first, t_node **fifth);

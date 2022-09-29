@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 14:47:03 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/28 15:21:20 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 13:43:36 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	sorting(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size)
 	if (list_size(*stack_a) == 2)
 		swap_a(stack_a);
 	else if (list_size(*stack_a) == 3)
-		sort_three_elemens(*stack_a);
+		sort_three_elemens(stack_a);
 	else if (list_size(*stack_a) == 4 || list_size(*stack_a) == 5)
 		sort_five_elements(stack_a, stack_b);
 	else
@@ -65,4 +65,5 @@ void	sorting(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size)
 		pre_sort_stack(stack_a, stack_b, chunk, chunk_size);
 		sort_stack(stack_a, stack_b);
 	}
+	printf("sorting: %d\n", (*stack_a)->data);
 }

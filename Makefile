@@ -6,7 +6,7 @@
 #    By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/25 10:32:35 by jschneid          #+#    #+#              #
-#    Updated: 2022/09/28 18:12:34 by jschneid         ###   ########.fr        #
+#    Updated: 2022/09/29 11:48:46 by jschneid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,10 @@ lib:
 # $(NAME):
 $(NAME): $(OBJ) $(LIB)
 	@cp ./libft/libft.a ./
-	@$(CC) $(FLAGS) $(OBJ) -Wno-gnu-include-next -I./LeakSanitizer/include -L./LeakSanitizer -llsan -lc++ -L. -lft -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -L. -lft -o $(NAME)
 	@echo "make done"
+
+# -Wno-gnu-include-next -I./LeakSanitizer/include -L./LeakSanitizer -llsan -lc++
 
 clean:
 	@make clean -C libft/

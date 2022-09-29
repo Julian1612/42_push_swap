@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/28 18:37:05 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 12:26:34 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int argc, char *argv[])
 	chunk_size = chunk;
 	sorting(&stack_a, &stack_b, chunk, chunk_size);
 	// printf("kek%ikek\n", list_size(stack_a));
+	printf("main: %d\n", stack_a->data);
 	free_list(stack_a);
 	return (0);
 }
