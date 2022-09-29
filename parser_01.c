@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:21:42 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/29 16:28:23 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:07:43 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_if_sorted(t_node *stack_a)
 	return (0);
 }
 
-int	input_check(int index_1, char **argv, int *value)
+int	input_check(int index_1, char **argv, int *value, t_node *ret)
 {
 	size_t		index_2;
 	long		current_number;
@@ -50,8 +50,9 @@ int	input_check(int index_1, char **argv, int *value)
 	if (current_number > INT_MAX || current_number < INT_MIN)
 	{
 		write(2, "Error\n", 6);
-		return(0);
-
+		ft_free(argv, array_length(argv));
+		free_list(ret);
+		exit (1);
 	}
 	index_2 = 0;
 	while (index_2 < ft_strlen(argv[index_1]))
@@ -62,7 +63,9 @@ int	input_check(int index_1, char **argv, int *value)
 		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
 		{
 			write(2, "Error\n", 6);
-			return (0);
+			ft_free(argv, array_length(argv));
+			free_list(ret);
+			exit (1);
 		}
 		index_2++;
 	}
