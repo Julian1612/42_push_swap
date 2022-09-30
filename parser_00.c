@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 08:30:37 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/30 13:49:46 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,16 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	int		error;
 
 	error = 0;
-	if (argc <= 2)
+	if (argc < 2)
 		exit(0);
 	input_checker(argv);
 	head = arr_to_list(&argv[1], &error);
 	error += duplicate_check(head);
+	if (list_size(head) == 1)
+	{
+		free_list(head);
+		exit(1);
+	}
 	if (error)
 	{
 		free_list(head);
@@ -90,7 +95,7 @@ int	input_checker(char **argv)
 		current_number = ft_atoi(argv[index_1]);
 		if (current_number > INT_MAX || current_number < INT_MIN)
 		{
-			write(2, "12Error\n", 8);
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		character_checker(argv, index_1);
@@ -111,7 +116,7 @@ void	character_checker(char **argv, int index_1)
 		index_2++;
 		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
 		{
-			write(2, "12Error\n", 8);
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		index_2++;
