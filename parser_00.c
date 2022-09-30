@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 15:54:45 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/30 20:30:01 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	input_checker(char **argv)
 	int			index_1;
 
 	index_1 = 1;
-	while (argv[index_1] != '\0')
+	while (argv[index_1])
 	{
 		current_number = ft_atoi(argv[index_1]);
 		if (current_number > INT_MAX || current_number < INT_MIN)
