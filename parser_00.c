@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 13:57:04 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:54:45 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,12 +113,12 @@ void	character_checker(char **argv, int index_1)
 	index_2 = 0;
 	while (index_2 < ft_strlen(argv[index_1]))
 	{
-		if (argv[index_1][index_2] == '-' || argv[index_1][index_2] == '+'
+		while (argv[index_1][index_2] == '-' || argv[index_1][index_2] == '+'
 			|| argv[index_1][index_2] == '"' || argv[index_1][index_2] == ' ')
-		index_2++;
+			index_2++;
 		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
 		{
-			write(2, "Error\n", 6);
+			write(2, "Error\n", 7);
 			exit(0);
 		}
 		index_2++;
