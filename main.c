@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 15:45:50 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/30 15:56:25 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 	stack_a = parser(argc, argv, stack_a);
 	if (stack_a == NULL)
 	{
-		write(2, "Error\n", 7);
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	stack_a = index_list(stack_a);

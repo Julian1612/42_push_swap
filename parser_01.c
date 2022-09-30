@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:21:42 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 11:10:29 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/30 16:01:26 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	check_if_sorted(t_node *stack_a, t_node *stack_b)
 	{
 		free_list(stack_a);
 		free_list(stack_b);
-		(void) stack_b;
 		exit(1);
 	}
 	return (0);
