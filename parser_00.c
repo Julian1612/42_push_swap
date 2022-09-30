@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 13:49:46 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/30 13:57:04 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	error = 0;
 	if (argc < 2)
 		exit(0);
+	if (ft_strlen(argv[1]) == 0)
+		return (NULL);
 	input_checker(argv);
 	head = arr_to_list(&argv[1], &error);
 	error += duplicate_check(head);
