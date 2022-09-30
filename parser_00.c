@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/29 21:48:10 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:30:37 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	int		error;
 
 	error = 0;
-	if (argc == 1)
+	if (argc <= 2)
 		exit(0);
 	input_checker(argv);
 	head = arr_to_list(&argv[1], &error);

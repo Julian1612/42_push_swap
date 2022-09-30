@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 11:47:43 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/29 20:04:35 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:33:57 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	free_list(t_node *list)
 	tmp = NULL;
 	while (list != NULL)
 	{
+		printf("lele: %d\n", list->data);
 		tmp = list->next;
 		free(list);
 		list = tmp;
