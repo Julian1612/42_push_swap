@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:25:46 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 20:05:01 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 20:09:30 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,3 @@ int	check_charakters(char **string)
 	}
 	return (0);
 }
-
-fischers fritz fischt frische fische frische fische fischt fischers fritz
