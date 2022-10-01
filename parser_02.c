@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:25:46 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 17:45:19 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 19:37:35 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,13 @@ int	check_charakters(char **string)
 	j = 0;
 	while (string[i])
 	{
+		if (string[i][j] == '\0')
+			return (1);
+		if (string[i][j] == '-' || string[i][j] == '+')
+			j++;
 		while (string[i][j])
 		{
-			if (string[i][j] == '-' || string[i][j] == '+'
-			|| string[i][j] == '"' || string[i][j] == ' ')
-				j++;
-			if (string[i][j] < 48 || string[i][j] > 57)
+			if (string[i][j] < '0' || string[i][j] > '9')
 				return (1);
 			j++;
 		}

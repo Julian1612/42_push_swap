@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 17:51:08 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 19:53:13 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,18 @@ static t_node	*arr_to_list(char **arr, int *error)
 t_node	*parser(int argc, char **argv, t_node *head)
 {
 	int		error;
+	int		tmp;
 
 	error = 0;
+	tmp = 0;
 	if (argc < 2)
 		exit(0);
 	if (ft_strlen(argv[1]) == 0)
 		return (NULL);
+	// while(argv[1][tmp] == 32 && argv[1])
+	// 	tmp++;
+	// if (!argv[1][tmp])
+	// 	return (NULL);
 	input_checker(argv);
 	head = arr_to_list(&argv[1], &error);
 	error += duplicate_check(head);
@@ -117,6 +123,8 @@ int	character_checker(char **argv, int index_1)
 
 	index_2 = 0;
 	string = ft_split(&argv[index_1][index_2], ' ');
+	if (string[0] == NULL)
+		return (1);
 	if (check_charakters(string) == 1)
 	{
 		ft_free(string, array_length(string));
