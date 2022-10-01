@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:25:46 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 19:37:35 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 20:05:01 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ int	check_charakters(char **string)
 	j = 0;
 	while (string[i])
 	{
-		if (string[i][j] == '\0')
-			return (1);
 		if (string[i][j] == '-' || string[i][j] == '+')
 			j++;
+		if (string[i][j] == '\0')
+			return (1);
 		while (string[i][j])
 		{
 			if (string[i][j] < '0' || string[i][j] > '9')
@@ -74,3 +74,5 @@ int	check_charakters(char **string)
 	}
 	return (0);
 }
+
+fischers fritz fischt frische fische frische fische fischt fischers fritz
