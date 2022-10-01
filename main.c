@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 16:06:37 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 15:56:25 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:17:41 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	stack_a = index_list(stack_a);
+	if (stack_a == NULL)
+		return (1);
 	chunk = get_chunk_size(&stack_a);
 	chunk_size = chunk;
 	sorting(&stack_a, &stack_b, chunk, chunk_size);

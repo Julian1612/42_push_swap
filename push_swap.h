@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 09:09:05 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:48:03 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	sort_five_elemens(t_node **stack_a, t_node **stack_b);
 void	push_first_and_last(t_node **stack_a, t_node **stack_b,
 			t_node **first, t_node **fifth);
 void	free_list(t_node *list);
-int		check_if_sorted(t_node *stack_a, t_node *stack_b);
+int		check_if_sorted(t_node *stack_a);
 t_node	*get_smallest_node(t_node *stack_a);
 void	push_smallest_element(t_node **stack_a, t_node **stack_b,
 			t_node *smallest_element);
@@ -98,5 +98,6 @@ void	sorting(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size);
 void	printlist(t_node *head);//////
 int		input_checker(char **argv);
 void	character_checker(char **argv, int index_1);
+t_node	*i(t_node *indexed_list, t_node *tmp, t_node *head, t_node *stack_a);
 
 #endif

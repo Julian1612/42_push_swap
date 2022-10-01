@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:25:46 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/29 21:48:13 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:48:57 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,22 @@ int	array_length(char **a)
 	while (a[index] != NULL)
 		index++;
 	return (index);
+}
+
+int	duplicate_check(t_node *head)
+{
+	t_node	*tmp;
+
+	while (head)
+	{
+		tmp = head->next;
+		while (tmp)
+		{
+			if (head->data == tmp->data)
+				return (1);
+			tmp = tmp->next;
+		}
+		head = head->next;
+	}
+	return (0);
 }
