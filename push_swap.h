@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 13:48:03 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 16:51:06 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ int		array_length(char **a);
 void	sorting(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size);
 void	printlist(t_node *head);//////
 int		input_checker(char **argv);
-void	character_checker(char **argv, int index_1);
+int		character_checker(char **argv, int index_1);
 t_node	*i(t_node *indexed_list, t_node *tmp, t_node *head, t_node *stack_a);
+int		check_charakters(char **string);
 
 #endif

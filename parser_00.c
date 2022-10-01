@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/09/30 20:30:01 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 16:52:01 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,30 +97,55 @@ int	input_checker(char **argv)
 		current_number = ft_atoi(argv[index_1]);
 		if (current_number > INT_MAX || current_number < INT_MIN)
 		{
-			write(2, "Error\n", 6);
+			write(2, "iError\n", 7);
 			exit(0);
 		}
-		character_checker(argv, index_1);
+		if (character_checker(argv, index_1))
+		{
+			write(2, "pError\n", 7);
+			exit(0);
+		}
 		index_1++;
 	}
 	return (0);
 }
 
-void	character_checker(char **argv, int index_1)
+int	character_checker(char **argv, int index_1)
 {
 	size_t	index_2;
+	char	**string;
 
 	index_2 = 0;
-	while (index_2 < ft_strlen(argv[index_1]))
+	string = ft_split(&argv[index_1][index_2], ' ');
+	if (check_charakters(string) == 1)
 	{
-		while (argv[index_1][index_2] == '-' || argv[index_1][index_2] == '+'
-			|| argv[index_1][index_2] == '"' || argv[index_1][index_2] == ' ')
-			index_2++;
-		if (argv[index_1][index_2] < 48 || argv[index_1][index_2] > 57)
-		{
-			write(2, "Error\n", 7);
-			exit(0);
-		}
-		index_2++;
+		ft_free(string, array_length(string));
+		return (1);
 	}
+	ft_free(string, array_length(string));
+	return (0);
+}
+
+int	check_charakters(char **string)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (string[i])
+	{
+		while (string[i][j])
+		{
+			if (string[i][j] == '-' || string[i][j] == '+'
+			|| string[i][j] == '"' || string[i][j] == ' ')
+				j++;
+			if (string[i][j] < 48 || string[i][j] > 57)
+				return (1);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (0);
 }
