@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 16:52:01 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 17:17:01 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_node	*parser(int argc, char **argv, t_node *head)
 	if (list_size(head) == 1)
 	{
 		free_list(head);
-		exit(1);
+		exit(0);
 	}
 	if (error)
 	{
@@ -97,12 +97,12 @@ int	input_checker(char **argv)
 		current_number = ft_atoi(argv[index_1]);
 		if (current_number > INT_MAX || current_number < INT_MIN)
 		{
-			write(2, "iError\n", 7);
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		if (character_checker(argv, index_1))
 		{
-			write(2, "pError\n", 7);
+			write(2, "Error\n", 6);
 			exit(0);
 		}
 		index_1++;

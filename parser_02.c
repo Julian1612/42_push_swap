@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:25:46 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 13:48:57 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/01 17:45:19 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,30 @@ int	duplicate_check(t_node *head)
 			tmp = tmp->next;
 		}
 		head = head->next;
+	}
+	return (0);
+}
+
+int	check_charakters(char **string)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (string[i])
+	{
+		while (string[i][j])
+		{
+			if (string[i][j] == '-' || string[i][j] == '+'
+			|| string[i][j] == '"' || string[i][j] == ' ')
+				j++;
+			if (string[i][j] < 48 || string[i][j] > 57)
+				return (1);
+			j++;
+		}
+		j = 0;
+		i++;
 	}
 	return (0);
 }
