@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:21:42 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/02 14:25:59 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:30:28 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_node	*index_list(t_node *stack_a)
 	t_node	*head_indexed;
 
 	tmp = NULL;
+	head_indexed = NULL;
 	head = stack_a;
 	indexed_list = new_node(get_nbr_index(stack_a, head));
 	if (indexed_list == NULL)
@@ -67,7 +68,7 @@ t_node	*index_list(t_node *stack_a)
 	}
 	head_indexed = indexed_list;
 	head = head->next;
-	indexed_list = i(indexed_list, tmp, head, stack_a);
+	indexed_list = get_nodes(indexed_list, tmp, head, stack_a);
 	free_list(stack_a);
 	if (check_if_sorted(head_indexed) == 0)
 	{
@@ -77,7 +78,8 @@ t_node	*index_list(t_node *stack_a)
 	return (head_indexed);
 }
 
-t_node	*i(t_node *indexed_list, t_node *tmp, t_node *head, t_node *stack_a)
+t_node	*get_nodes(t_node *indexed_list, t_node *tmp,
+t_node *head, t_node *stack_a)
 {
 	int	index;
 

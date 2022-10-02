@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 13:07:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 16:51:06 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:32:12 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # include <fcntl.h>
 # include <limits.h>
 # include "./libft/libft.h"
-////////////////////
-# include <stdio.h>
-////////////////////
 
 typedef struct s_node
 {
@@ -95,10 +92,10 @@ void	move_to_b(t_node **stack_a, t_node **stack_b,
 			t_node *smallest_top, t_node *smallest_bottom);
 int		array_length(char **a);
 void	sorting(t_node **stack_a, t_node **stack_b, int chunk, int chunk_size);
-void	printlist(t_node *head);//////
 int		input_checker(char **argv);
 int		character_checker(char **argv, int index_1);
-t_node	*i(t_node *indexed_list, t_node *tmp, t_node *head, t_node *stack_a);
+t_node	*get_nodes(t_node *indexed_list, t_node *tmp,
+			t_node *head, t_node *stack_a);
 int		check_charakters(char **string);
 
 #endif
