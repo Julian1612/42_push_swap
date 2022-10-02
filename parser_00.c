@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 12:38:59 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 20:09:14 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:27:14 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_node	*create_list(char **arr)
 	if (get_int(0, arr, &data))
 		return (NULL);
 	ret = new_node(data);
+	if (ret == NULL)
+		exit (0);
 	head = ret;
 	while (arr[index])
 	{

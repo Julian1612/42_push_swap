@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 20:25:46 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 20:09:30 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:15:58 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_node	*new_node(int value)
 	t_node	*stack;
 
 	stack = (t_node *) malloc(sizeof(t_node));
+	if (stack == NULL)
+		return (NULL);
 	stack->data = value;
 	stack->next = NULL;
 	return (stack);

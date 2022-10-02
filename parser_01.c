@@ -6,7 +6,7 @@
 /*   By: jschneid <jschneid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:21:42 by jschneid          #+#    #+#             */
-/*   Updated: 2022/10/01 13:49:12 by jschneid         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:25:59 by jschneid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,37 +50,6 @@ int	get_int(int index_1, char **argv, int *value)
 	return (0);
 }
 
-// t_node	*index_list(t_node *stack_a)
-// {
-// 	int		index;
-// 	t_node	*indexed_list;
-// 	t_node	*tmp;
-// 	t_node	*head;
-// 	t_node	*head_indexed;
-
-// 	head = stack_a;
-// 	indexed_list = new_node(get_nbr_index(stack_a, head));
-// 	head_indexed = indexed_list;
-// 	head = head->next;
-// 	index = (list_size(stack_a) - 1);
-// 	while (index > 0)
-// 	{
-// 		while (indexed_list->next != NULL)
-// 			indexed_list = indexed_list->next;
-// 		tmp = new_node(get_nbr_index(stack_a, head));
-// 		indexed_list->next = tmp;
-// 		head = head->next;
-// 		index--;
-// 	}
-// 	free_list(stack_a);
-// 	if (check_if_sorted(head_indexed) == 0)
-// 	{
-// 		free_list(head_indexed);
-// 		return (NULL);
-// 	}
-// 	return (head_indexed);
-// }
-
 t_node	*index_list(t_node *stack_a)
 {
 	t_node	*indexed_list;
@@ -91,6 +60,11 @@ t_node	*index_list(t_node *stack_a)
 	tmp = NULL;
 	head = stack_a;
 	indexed_list = new_node(get_nbr_index(stack_a, head));
+	if (indexed_list == NULL)
+	{
+		free_list(head_indexed);
+		return (NULL);
+	}
 	head_indexed = indexed_list;
 	head = head->next;
 	indexed_list = i(indexed_list, tmp, head, stack_a);
